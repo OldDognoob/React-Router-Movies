@@ -51,7 +51,7 @@ function MovieDetails({ movie }) {
         </div>
       ))}
     </div>
-    </Link> 
+  </Link>
     // </NavLink>
 
     
