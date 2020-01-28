@@ -38,7 +38,7 @@ return (
         <MovieList/>
         </Route>
         <Route exact path="/movies/:movieId">
-        <Movie/>
+        <Movie addToSavedList={addToSavedList}/>
         </Route>
       </Switch>
     </div>
