@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 import { BrowserRouter as Router} from 'react-router-dom';
+
 
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
@@ -15,15 +16,39 @@ const App = () => {
     setSavedList( [...savedList, movie] );
   };
 
-  return (
-    <Router>
-      <div>
-        <SavedList list={savedList} />
-        <Route exact path='/' component={MovieList}/>
-        <Route path='/movies/:id' render={(props) => (<Movie {...props}/>)}/>
-      </div>
-    </Router>
+  // return (
+  //   <Router>
+  //     <div>
+  //       <SavedList list={savedList} />
+  //       <Route exact path='/' component={MovieList}/>
+  //       <Route path='/movies/:id' Component={Movie}}/>
+  //     </div>
+  //   </Router>
+  // );
+
+
+  //New way of syntax
+
+
+return (
+    <div>
+      <SavedList list={savedList} />
+      <Switch>
+        <Route exact path="/">
+        <MovieList/>
+        </Route>
+        <Route exact path="/movies/:movieId">
+        <Movie addToSavedList={addToSavedList}/>
+        </Route>
+      </Switch>
+    </div>
   );
+
+
+
+
 };
+
+
 
 export default App;
